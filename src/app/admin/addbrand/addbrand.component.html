@@ -1,0 +1,57 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<p-toast></p-toast>
+
+<div class="card">
+    <p-table #dt [scrollable]="true" [value]="brandList" [rows]="10" [paginator]="true"
+        [globalFilterFields]="['name']" [rowHover]="true" dataKey="id"
+        currentPageReportTemplate="" [showCurrentPageReport]="true">
+
+        <ng-template pTemplate="caption">
+            <div class="p-d-flex p-ai-center p-jc-between">
+                <h2 id="brand" class="p-mb-3">Markalar</h2>
+                <button
+                      pButton pRipple label="Ekle" icon="pi pi-plus" class="p-button-success p-mr-2 p-mt-2" (click)="openNew()">
+                </button>
+            </div>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-brand>
+            <tr>
+                <td>
+                  <span>{{brand.brandName}}</span>
+                </td>
+                <td>
+                    <button pButton pRipple icon="pi pi-pencil"
+                        class="p-button-rounded p-button-success p-mr-2" (click)="edit(brand)"></button>
+                    <button pButton pRipple icon="pi pi-trash" (click)="delete(brand.id)" class="p-button-rounded p-button-warning"></button>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+            <div id="footer" class="p-d-flex p-ai-center p-jc-between">
+                Toplamda {{brandList ? brandList.length : 0 }} marka bulunmaktadır.
+            </div>
+        </ng-template>
+    </p-table>
+</div>
+
+<p-dialog [(visible)]="productDialog" [style]="{width: '450px'}" header="Marka Ekle" [modal]="true"
+    styleClass="p-fluid">
+
+    <ng-template pTemplate="content">
+        <div class="p-field">
+            <label for="name">Marka İsmi</label>
+            <input type="text" pInputText id="name" [(ngModel)]="brand.brandName" required autofocus />
+            <small class="p-invalid" *ngIf="submitted && !brand.brandName">Name is required.</small>
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="İptal" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <button pButton pRipple label="Kaydet" icon="pi pi-check" (click) = "addBrand()" class="p-button-text"></button>
+    </ng-template>
+
+</p-dialog>
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>

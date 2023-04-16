@@ -1,0 +1,85 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous"/>
+
+<div>
+  <span id="category">
+    <p-dropdown
+      inputId="state"
+      [options]="categoryList"
+      (onChange) = "selectCategory()"
+      [(ngModel)] = "selectedCategory"
+      placeholder="Kategori"
+      optionLabel="name"
+      optionValue="id"
+    ></p-dropdown>
+  </span>
+
+  <span id="brand">
+    <p-dropdown
+    *ngIf="brandList.length != 0"
+      inputId="state"
+      [options]="brandList"
+      (onChange) = "filterBrand()"
+      [(ngModel)] = "selectedBrand"
+      placeholder="Marka"
+      optionLabel="brandName"
+      optionValue="id"
+    ></p-dropdown>
+  </span>
+</div>
+
+<div class="card">
+  <p-dataView #dv [value]="productList" [paginator]="true" [rows]="9" filterBy="name"
+      layout="grid">
+
+      <ng-template pTemplate="header">
+          <div class="p-d-flex p-flex-column p-flex-md-row p-jc-md-between">
+              <p-dropdown  placeholder="Sort By Price"  styleClass="p-mb-2 p-mb-md-0"></p-dropdown>
+              <span class="p-input-icon-left p-mb-2 p-mb-md-0">
+                  <i class="pi pi-search"></i>
+                  <input type="search" pInputText placeholder="Search by Name" >
+              </span>
+              <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+          </div>
+      </ng-template>
+
+      <ng-template let-product pTemplate="listItem">
+          <div class="p-col-12">
+              <div class="product-list-item">
+                  <div class="product-list-detail">
+                      <div class="product-name">{{product.name}}</div>
+                      <i class="fas fa-tags"></i><span class="product-category">{{product.category}}</span>
+                  </div>
+                  <div class="product-list-action">
+                      <span class="product-price">{{product.price}} TL</span>
+                      <p-button icon="pi pi-shopping-cart" label="Sepete Ekle" [disabled]="product.inventoryStatus === 'OUTOFSTOCK'"></p-button>
+                      <span [class]="'product-badge status-'">{{product.inventoryStatus}}</span>
+                  </div>
+              </div>
+          </div>
+      </ng-template>
+
+      <ng-template let-product pTemplate="gridItem">
+          <div class="p-col-12 p-md-4">
+              <div class="product-grid-item card">
+                  <div class="product-grid-item-top">
+                      <div>
+                          <i class="pi pi-tag product-category-icon"></i>
+                          <span class="product-category">{{product.category}}</span>
+                      </div>
+                      <span [class]="'product-badge status-'">{{product.inventoryStatus}}</span>
+                  </div>
+                  <div class="product-grid-item-content">
+                      <div class="product-name">{{product.name}}</div>
+                      <div class="product-img"><img src="{{product.imageUrl}}" loading="lazy" width="70px" height="180px" alt=""></div>
+                  </div>
+                  <div class="product-grid-item-bottom">
+                      <span class="product-price">{{product.price}} TL</span>
+                      <!-- <p-button (click)="addToBasket(product)" icon="pi pi-shopping-cart" [disabled]="product.inventoryStatus === 'OUTOFSTOCK'"></p-button> -->
+                      <p-button routerLink="/productdetail/{{product.id}}" label="Ürüne Git" icon="pi pi-shopping-cart" [disabled]="product.inventoryStatus === 'OUTOFSTOCK'"></p-button>
+                  </div>
+              </div>
+          </div>
+      </ng-template>
+  </p-dataView>

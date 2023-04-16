@@ -1,0 +1,40 @@
+*{
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: black;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+.card{
+  margin:3% 7%;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-bottom: 3%;
+  border: 3px solid #b7cce2;
+}
+.header{
+  text-align: center;
+  position: relative;
+  top: 10%;
+}
+#logo{
+  width: 10rem;
+  height: 10rem;
+}
+button {
+  min-width: 10rem;
+  margin-right: .5rem;
+}
+
+@media screen and (max-width: 960px) {
+  button {
+      width: 100%;
+      margin-bottom: .5rem;
+  }
+}
+
+#btn{
+  align-items: right !important;
+}
+
+

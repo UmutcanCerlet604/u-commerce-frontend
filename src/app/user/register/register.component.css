@@ -1,0 +1,42 @@
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+.register-card{
+  margin:7% 10%;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-bottom: 3%;
+}
+
+.header{
+  text-align: center;
+}
+
+#logo{
+  width: 10rem;
+  height: 10rem;
+}
+
+p {
+  margin:5px !important;
+}
+
+#btnDiv {
+  position: relative;
+}
+
+.p-col-12 {
+  padding: 0px;
+}
+
+.button {
+  position: absolute;
+  right: 0px;
+}
+
+@media screen and (min-width: 1300px) {
+  .register-card {
+    margin: 3% 35%;
+  }
+}

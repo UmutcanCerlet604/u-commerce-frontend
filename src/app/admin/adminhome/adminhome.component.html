@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@500&display=swap" rel="stylesheet">
+
+<div>
+  <div id="data-table" class="p-grid">
+    <div routerLink="/productlist" id="product-piece" class="p-col-11 p-md-4 p-lg-3 border-round p-shadow-12">
+      <div id="icon-1"><i class="fas fa-dolly"></i></div>
+      <div class="font-home">Ürün Sayısı: </div>
+    </div>
+
+    <div id="user-piece" class="p-col-11 p-md-6 p-lg-3 border-round p-shadow-12">
+      <div id="icon-2"><i class="fas fa-users"></i></div>
+      <div class="font-home">Kullanıcı Sayısı: </div>
+    </div>
+
+    <div id="total-price" class="p-col-11 p-md-6 p-lg-3 border-round p-shadow-12">
+      <div id="icon-3"><i class="fas fa-wallet"></i></div>
+      <div class="font-home">Toplam Kazanç: </div>
+    </div>
+  </div>
+
+  <div id="general-chart" class="p-grid">
+    <div id="chart" class="p-col-6 p-md-12 p-sm-12 p-lg-5 border-round p-shadow-12">
+      <p-chart class="graphics" type="pie" [data]="data"></p-chart>
+    </div>
+    <div id="chart-2" class="p-col-6 p-md-12 p-sm-12 p-lg-5 border-round p-shadow-12">
+      <p-chart class="graphics" type="doughnut" [data]="data2" [options]="chartOptions"></p-chart>
+    </div>
+    <div id="chart-3" class="p-col-8 p-lg-11 border-round p-shadow-12">
+      <p-chart class="graphics" type="bar" [data]="basicData" [options]="basicOptions"></p-chart>
+    </div>
+  </div>
+
+  <div class="p-grid">
+
+  </div>
+
+</div>

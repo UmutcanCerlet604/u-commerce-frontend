@@ -1,0 +1,45 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+<form [formGroup]="userAddForm" (ngSubmit)="addUser(user)">
+  <div class="register-card">
+    <div class="p-fluid p-formgrid p-grid">
+      <div class="p-field p-col-12 p-md-12">
+        <p class="img"><img id="logo" src="../../../assets/image/u-commerce.png" alt=""></p>
+      </div>
+      <div class="p-field p-col-12 ">
+        <h2 id="registerhd" class="header">Kayıt Ol</h2>
+      </div>
+      <div class="p-field p-col-12">
+        <p style="font-size:15px;">Adı</p>
+        <input type="text" formControlName="firstName" pInputText  [(ngModel)]="user.firstName">
+      </div>
+      <div class="p-field p-col-12">
+        <p style="font-size:15px;">Soyadı</p>
+        <input type="text" formControlName="lastName" pInputText [(ngModel)]="user.lastName">
+      </div>
+      <div class="p-field p-col-12">
+        <p style="font-size:15px;">Kullanıcı Adı</p>
+        <input type="text" formControlName="username" pInputText [(ngModel)]="user.username">
+      </div>
+      <div class="p-field p-col-12">
+        <p style="font-size:15px;">Şifre</p>
+        <input type="text" formControlName="password" pInputText [(ngModel)]="user.password">
+      </div>
+      <div class="p-field p-col-12">
+        <p style="font-size:15px;">E-Mail</p>
+        <input type="text" formControlName="email" pInputText [(ngModel)]="user.email">
+      </div>
+      <div class="p-field p-col-12">
+        <p style="font-size:15px;">Telefon Numarası</p>
+        <input type="text" formControlName="phoneNumber" [(ngModel)]="user.phoneNumber" pInputText pKeyFilter="num">
+      </div>
+      <div id="btnDiv" class="p-field p-col-12 p-md-12">
+        <p-button [disabled]="userAddForm.invalid" type="submit" class="button" label="Kaydol"></p-button>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+

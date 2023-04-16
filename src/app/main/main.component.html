@@ -1,0 +1,3 @@
+<app-menu *ngIf="user.userRole.userRole == 'ROLE_ADMIN'"></app-menu>
+<app-usermenu *ngIf="user.userRole.userRole == 'ROLE_USER'"></app-usermenu>
+<router-outlet></router-outlet>

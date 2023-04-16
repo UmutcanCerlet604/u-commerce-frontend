@@ -1,0 +1,85 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<div class="card">
+  <p-dataView #dv [value]="basket" [paginator]="true" [rows]="9" filterBy="name"
+      [sortField]="sortField" [sortOrder]="sortOrder" layout="grid">
+
+      <ng-template pTemplate="header">
+          <div class="p-d-flex p-flex-column p-flex-md-row p-jc-md-between">
+            <button (click)="showBasicDialog()" class="p-col-2 " id="buy" pButton pRipple icon="pi pi-shopping-cart" type="button" label="Sepeti Onayla"></button>
+            <div style="margin-top: 1em; margin-right: 1em;" > Toplam Tutar: {{basket|totalBasket}} TL </div>
+          </div>
+      </ng-template>
+
+      <ng-template let-basket pTemplate="gridItem">
+          <div class="p-col-12">
+              <div class="product-list-item">
+                <img [src]="basket.product.imageUrl" [alt]="basket.product.name">
+                  <div class="product-list-detail">
+                      <div class="product-name">{{basket.product.name}}</div>
+                      <div class="product-description">{{basket.product.description}}</div>
+                      <i class="fas fa-tags"></i><span class="product-category">{{basket.product.category}}</span>
+                  </div>
+                  <div class="product-list-action">
+                      <span class="product-price">{{basket.product.price * basket.quantity}} TL</span>
+                        <div class="p-col-12">
+                          <p-inputNumber
+                            class="p-col-10"
+                            id="pieces"
+                            mode="decimal"
+                            inputId="minmax-buttons"
+                            [(ngModel)]="basket.quantity"
+                            [disabled]=true
+                            [min]="0" [max]="basket.product.piece">
+                          </p-inputNumber>
+                        </div>
+
+                      <div id="btngroup"  class="p-col-12">
+                        <button id="addition" class="p-col-4" (click)="increase(basket.product.id)"><i class="fas fa-plus"></i></button>
+                        <button id="extraction" class="p-col-4" (click)="decrease(basket.product.id)"><i class="fas fa-minus"></i></button>
+                      </div>
+                      <div>
+                        <button class="p-col-8 p-md-12" id="delete" pButton pRipple (click)="deleteBasket(basket.id)" icon="pi pi-trash" type="button" label="Sepetten Sil"></button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </ng-template>
+  </p-dataView>
+
+  <p-dialog [(visible)]="displayBasic" [style]="{width: '450px'}" header="Ödeme Ekranı" [modal]="true"
+    styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <div class="p-field">
+          <label for="name">İsim</label>
+          <input [(ngModel)]="card.name" type="text" pInputText id="name" required autofocus />
+        </div>
+        <div class="p-field">
+          <label for="name">Soyisim</label>
+          <input [(ngModel)]="card.surname" type="text" pInputText id="name" required autofocus />
+        </div>
+        <div class="p-field">
+          <label for="name">Kredi Kartı Numarası</label>
+          <input [(ngModel)]="card.cardNumber" placeholder="____/____/____/____" type="text" pInputText id="name" required autofocus />
+        </div>
+        <div class="p-field">
+          <label for="name">CVV</label>
+          <input [(ngModel)]="card.cvv" placeholder="___" type="text" pInputText id="name" required autofocus />
+        </div>
+        <div class="p-field">
+          <label for="name">Tarih</label>
+          <input [(ngModel)]="card.date" placeholder="__/__" type="text" pInputText id="name" required autofocus />
+        </div>
+        <div class="p-field">
+          <div id="amount">Toplam Tutar: {{basket|totalBasket}} TL </div>
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="İptal" icon="pi pi-times" class="p-button-text" ></button>
+        <button (click)="addCard()" (click)="addOrderItem()"  pButton pRipple label="Satın Al" icon="pi pi-check" class="p-button-text"></button>
+    </ng-template>
+
+    </p-dialog>
+  <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+</div>

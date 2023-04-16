@@ -1,1 +1,154 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("../node_modules/primeicons/primeicons.css");
+@import url("../node_modules/primeng/resources/themes/saga-orange/theme.css");
+@import url("../node_modules/primeng/resources/primeng.min.css");
+
+.p-sidebar-left {
+  width: 15rem !important;
+}
+
+ul{
+  padding-left: 25px !important;
+}
+
+li{
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+
+.slide{
+  padding: none !important;
+}
+
+.p-sidebar {
+  padding: 0 !important;
+}
+
+*{
+  font-family: 'Syne', sans-serif;
+}
+
+.img{
+  text-align: center;
+}
+#logo{
+  width: 12em;
+  height: 12em;
+}
+#password{
+  margin-top: 1.5em;
+}
+#username{
+  margin-top: 1.5em;
+}
+
+#registerhd{
+  margin-block-start: 0 !important;
+  margin-block-end: 0 !important;
+}
+
+.p-button:enabled{
+  color: white !important;
+  background: #DE1B1B !important;
+  border-color: #DE1B1B !important;
+}
+
+.p-button:hover{
+  color: white !important;
+  background: #ff7c7c !important;
+  border-color: #FF8883 !important;
+}
+
+.p-button:focus {
+  box-shadow: 0 0 0 0.2rem #DE1B1B !important;
+}
+
+.p-button .p-component .p-fileupload-choose .p-ripple{
+  color: white !important;
+  background: #DE1B1B !important;
+  border-color: #DE1B1B !important;
+}
+
+.p-toolbar {
+  background: #f8f9fa !important;
+  border: 3px solid #b7cce2 !important;
+  padding: 1rem !important;
+  border-radius: 3px !important;
+}
+
+.p-datatable {
+  position: relative;
+  border: 3px solid #b7cce2;
+  background: #f8f9fa;
+  border-radius: 3px !important;
+}
+
+.p-datatable .p-datatable-header {
+  border: 0px solid #b7cce2 !important;
+  border-width: 0px 0px 3px 0px !important;
+}
+
+.p-dataview .p-dataview-header {
+  border: 1px solid #b7cce2 !important;
+  border-width: 3px 3px 3px 3px !important;
+}
+
+.p-dataview .p-dataview-header {
+  margin-left: 1rem !important;
+  margin-right: 1rem !important;
+}
+
+.p-dataview .p-dataview-header {
+  margin-bottom: 1em !important;
+}
+
+.p-dialog .p-dialog-content {
+  background: #ffffff;
+  color: #495057;
+  padding: 0 1.5rem 1rem 1.5rem !important;
+}
+
+.p-dialog .p-dialog-footer {
+  padding: 0 1rem 1rem 0.5rem !important;
+}
+
+.p-tabview .p-tabview-nav li .p-tabview-nav-link {
+  border-width: none !important;
+}
+
+.p-tabview .p-tabview-nav {
+  border-width: 2px !important;
+  padding: 1em !important;
+  margin: 1em !important;
+  border: 3px solid #b7cce2 !important;
+}
+
+.p-tabview .p-tabview-nav li .p-tabview-nav-link {
+  border-width: 2px 2px 2px 2px !important;
+}
+
+.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  background: #ffffff;
+  border-color: #b7cce2 !important;
+  color: darksalmon;
+}
+.order-img{
+  width: 60% !important;
+}
+
+.p-datatable .p-datatable-tbody > tr > td {
+  text-align: center !important;
+}
+
+.p-card .p-card-content {
+  padding: 0 !important;
+}
+
+.product.header{
+  padding-bottom: 5% !important;
+}
+
+.p-card-shadow .p-card .p-component{
+  background: aliceblue !important;
+}
+

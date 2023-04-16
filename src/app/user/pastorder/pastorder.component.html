@@ -1,0 +1,52 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+<div id="history">
+  <div class="p-col-12">
+    <div class="card">
+      <h2 id="header">Sipariş Geçmişi</h2>
+      <p-table [value]="orders" dataKey="id" styleClass="p-datatable-customers rowexpand-table">
+        <ng-template pTemplate="body" let-order let-expanded="expanded">
+          <tr>
+            <td>
+              <button type="button" pButton pRipple [pRowToggler]="order" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+            </td>
+            <td id="date" class="p-col-12">
+              <span> {{order.date}}</span>
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="rowexpansion" let-order>
+          <tr>
+            <td colspan="7">
+              <div class="p-p-3">
+                <p-table [value]="order.orderItemDTOS" dataKey="id">
+                  <ng-template pTemplate="header">
+                    <tr>
+                      <th pSortableColumn="stats">Ürün Resmi</th>
+                      <th pSortableColumn="id">Ürün Adı</th>
+                      <th pSortableColumn="customer">Ürün Adeti</th>
+                      <th pSortableColumn="date">Ürün Açıklaması</th>
+                      <th pSortableColumn="stats">Ürün Fiyatı</th>
+
+                    </tr>
+                  </ng-template>
+                  <ng-template pTemplate="body" let-orderx>
+                    <tr>
+                      <td><span ><img class="order-img" src="{{orderx.imageUrl}}" alt=""></span></td>
+                      <td><span class="p-column-title"></span>{{orderx.name}}</td>
+                      <td><span class="p-column-title"></span>{{orderx.quantity}}</td>
+                      <td><span class="p-column-title"></span>{{orderx.description}}</td>
+                      <td><span class="p-column-title"></span>{{orderx.price}}</td>
+                    </tr>
+                  </ng-template>
+                </p-table>
+              </div>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>
+

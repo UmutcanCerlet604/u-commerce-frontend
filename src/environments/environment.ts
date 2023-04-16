@@ -3,8 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  SERVER_PUBLIC_API_URL: 'http://localhost:8080/public',
+  SERVER_API_URL: 'http://localhost:8080/private',
+  SERVER_FRONTEND_URL: 'http://localhost:4200',
 };
+
+
 
 /*
  * For easier debugging in development mode, you can import the following file

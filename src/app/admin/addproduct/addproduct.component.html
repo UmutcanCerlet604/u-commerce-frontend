@@ -1,0 +1,65 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<p-toast></p-toast>
+<p-toast position="top-left" key="tl"></p-toast>
+<div class="card">
+  <div class="p-fluid p-formgrid p-grid">
+    <div class="p-field p-col-12 p-md-12">
+      <p class="img"><img id="logo" src="../../../assets/image/u-commerce.png" alt=""></p>
+    </div>
+    <div class="p-field p-col-12 p-md-12">
+      <h1 class="header" style="font-size:x-large;">Ürün Ekle</h1>
+    </div>
+    <div class="p-field p-col-12 p-md-4">
+      <label for="firstname6">Ürün İsmi</label>
+      <input [(ngModel)]="product.name" id="firstname6" type="text" pInputText />
+    </div>
+    <div class="p-field p-col-12 p-md-4">
+      <label for="lastname6">Ürün Fiyatı</label>
+      <input [(ngModel)]="product.price" id="lastname6" type="text" pInputText />
+    </div>
+    <div class="p-field p-col-12 p-md-4">
+      <label for="lastname6">Ürün Adeti</label>
+      <input [(ngModel)]="product.piece" id="lastname6" type="text" pInputText />
+    </div>
+    <div class="p-field p-col-12">
+      <label for="address">Ürün Açıklaması</label>
+      <textarea [(ngModel)]="product.description" id="address" type="text" rows="4" pInputTextarea></textarea>
+    </div>
+    <div class="p-field p-col-12 p-md-6">
+      <label for="city">Ürün Resmi</label>
+      <input [(ngModel)]="product.imageUrl" id="city" type="text" pInputText />
+    </div>
+    <div class="p-field p-col-12 p-md-3">
+      <label for="state">Kategori</label>
+      <p-dropdown
+        inputId="state"
+        [options]="categoryList"
+        (onChange) = "selectCategory()"
+        [(ngModel)] = "product.categoryId"
+        placeholder="Kategori"
+        optionLabel="name"
+        optionValue="id"
+      ></p-dropdown>
+
+    </div>
+    <div class="p-field p-col-12 p-md-3">
+      <label for="state">Marka</label>
+      <p-dropdown
+        inputId="state"
+        [options]="brandList"
+        (onChange) = "selected()"
+        [(ngModel)] = "product.brandId"
+        placeholder="Marka"
+        optionLabel="brandName"
+        optionValue="id"
+      ></p-dropdown>
+    </div>
+    <div class="p-field p-col-4 p-md-3">
+      <div id="btn">
+        <button type="button" pButton pRipple (click)="addProduct()" label="Ürün Ekle" class="p-button-success"></button>
+      </div>
+    </div>
+  </div>
+</div>
+

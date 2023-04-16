@@ -1,0 +1,73 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<div class="p-grid" id="total-card">
+
+  <div class="p-col-12">
+    <div>
+      <div class="p-pb-3 header" style="text-align: center;">Ürün Özellikleri</div>
+    </div>
+  </div>
+
+  <div class="p-col-4">
+    <p-card id="card-1">
+      <div>
+        <img class="product-img" src="{{product.imageUrl}}" loading="lazy">
+      </div>
+    </p-card>
+  </div>
+
+  <div class="p-col-8">
+    <div class="main-card" styleClass="p-card-shadow">
+      <div class="productnm">{{product.name}}</div>
+      <div class="price">{{product.price}} TL</div>
+      <div class="piece">Stokta {{product.piece}} adet mevcuttur.</div>
+      <div class="p-mt-3 dscrp">{{product.description}}</div>
+
+      <p-button (click)="addToBasket(product)" class="addbasket" icon="pi pi-shopping-cart" label="Sepete Ekle"></p-button>
+    </div>
+  </div>
+
+
+
+    <div class="p-col-12">
+      <div class="comments">
+        <div class="table-hd" style="font-weight: bold;">Yorumlar</div>
+          <div class="row" >
+            <div class="avatar">
+              <p-avatar [style]="{'background-color': '#b7cce2', 'color': '#ffffff'}" class="p-col-2" styleClass="p-mr-2" size="xlarge" shape="circle">
+                {{user | avatar}}
+              </p-avatar>
+            </div>
+            <div class="comment-text">
+              <textarea class="txt" [(ngModel)]="comment.productComment" class="p-col-10" rows="5" pInputTextarea ></textarea>
+            </div>
+          </div>
+
+          <div class="btn-group p-mb-5">
+            <button id="cancel-btn" pButton type="button" label="İptal" class="p-button-warning "></button>
+            <button id="add-btn" pButton type="button" label="Yorum Ekle" (click)="addComment()" class="p-button-warning "></button>
+          </div>
+
+
+            <div *ngFor="let com of comments">
+              <div class="row" >
+                <div class="avatar">
+                  <p-avatar [style]="{'background-color': '#b7cce2', 'color': '#ffffff'}" class="p-col-2" styleClass="p-mr-2" size="xlarge" shape="circle">
+                    {{ com.user | avatar}}
+                  </p-avatar>
+                </div>
+                <div class="comment-text">
+                  <p-card class="txt" class="comment-text" class="p-col-10 p-mb-5" rows="5" disabled="true">
+                    {{com.productComment}}
+                  </p-card>
+                </div>
+              </div>
+            </div>
+
+
+      </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,25 @@
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+<div class="register-card">
+  <div class="p-fluid p-formgrid p-grid">
+    <div class="p-field p-col-12 p-md-12">
+      <p class="img"><img id="logo" src="../../../assets/image/u-commerce.png" alt=""></p>
+    </div>
+    <div class="p-field p-col-12 ">
+      <h2 id="registerhd" class="header">Giriş Yap</h2>
+    </div>
+    <div class="p-field p-col-12">
+      <p style="font-size:15px;">Kullanıcı Adı</p>
+      <input type="text" pInputText [(ngModel)]="username">
+    </div>
+    <div class="p-field p-col-12">
+      <p style="font-size:15px;">Şifre</p>
+      <input type="password" pInputText [(ngModel)]="password">
+    </div>
+    <div routerLink="register" class="p-field p-col-12">
+      <p class="sign-up">Hala kayıtlı değil misiniz ?</p>
+    </div>
+    <div id="btnDiv" class="p-field p-col-12 p-md-12">
+      <p-button class="button" (click)="doLogin()" label="Giriş Yap"></p-button>
+    </div>
+  </div>
+</div>
